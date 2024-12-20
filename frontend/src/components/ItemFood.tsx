@@ -1,20 +1,18 @@
 import { HeartOutlined, LinkOutlined, ShoppingOutlined } from "@ant-design/icons"
 import { Button } from "antd"
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../state/cart/cartSlice";
 import { toast } from "react-toastify";
 import { dataFoods } from "../data";
+import { useCart } from "../hooks/useCart";
 
-const ItemFood = ({id} : {id: string}) => {
+const ItemFood = ({id} : {id: number}) => {
     const navigate = useNavigate()
-    const dispatch = useDispatch()
-
+    const { addToCart } = useCart(id);
     
     const handleAddToCart = (e : any) => {
         e.stopPropagation();
+        addToCart();
         toast.success(`Add 01 ${dataFoods[id].name} to cart successfully`)
-        dispatch(addProduct({id: id, qty: 1, price: dataFoods[id].salePrice || dataFoods[id].price}))
     }
     return (
     <div className="group w-full">

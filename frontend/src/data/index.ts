@@ -1,4 +1,4 @@
-import { Food } from "../types/listType"
+import { Food } from "../types/types"
 
 export const dataCart = [
     {

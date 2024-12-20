@@ -7,18 +7,18 @@ import { ArrowLeftOutlined, ArrowRightOutlined, FacebookFilled,
 import { valueType } from "antd/es/statistic/utils"
 import ItemFood from "../../components/ItemFood"
 import CoverPage from "../../components/CoverPage"
-import { useDispatch } from "react-redux"
-import { addProduct } from "../../state/cart/cartSlice"
 import { toast } from "react-toastify"
 import { dataFoods } from "../../data"
+import { useCart } from "../../hooks/useCart"
+import { useDispatch } from "react-redux"
 
 const DetailProduct = () => {
+    const dispatch = useDispatch();
     const { id } = useParams()
     const [product, setProduct] = useState(dataFoods[String(id)])
     const [qty, setQty] = useState<valueType | null>(1)
     const [currentImage, setCurrentImage] = useState(0)
-    
-    const dispatch = useDispatch()
+    const { addToCart } = useCart(parseInt(id!));
 
     useEffect(() => {
         setProduct(dataFoods[String(id)])
@@ -26,7 +26,6 @@ const DetailProduct = () => {
 
     const handleAddMultipleProduct = () => {
         console.log(qty)
-        dispatch(addProduct({id: product.id, price: product.salePrice ? product.salePrice : product.price, qty: Number(qty)}))
         toast.success(`Add ${Number(qty) < 10 ? '0' + String(qty) : String(qty)} ${product.name} successfull!`)
     }
 
@@ -140,11 +139,11 @@ const DetailProduct = () => {
                 <p className="font-bold text-3xl mb-8">Similar Product</p>
 
                 <div className="flex justify-between mb-32 gap-x-10 max-lg:grid max-lg:grid-cols-1  ">
-                    <ItemFood id={String(Number(id) + 1 < 10 ? Number(id) + 1 : 1)} />
-                    <ItemFood id={String(Number(id) + 2 < 10 ? Number(id) + 2 : 2)} />
-                    <ItemFood id={String(Number(id) + 3 < 10 ? Number(id) + 3 : 3)} />
-                    <ItemFood id={String(Number(id) + 4 < 10 ? Number(id) + 4 : 4)} />
-                    <ItemFood id={String(Number(id) + 5 < 10 ? Number(id) + 5 : 5)} />
+                    <ItemFood id={(Number(id) + 1 < 10 ? Number(id) + 1 : 1)} />
+                    <ItemFood id={(Number(id) + 2 < 10 ? Number(id) + 2 : 2)} />
+                    <ItemFood id={(Number(id) + 3 < 10 ? Number(id) + 3 : 3)} />
+                    <ItemFood id={(Number(id) + 4 < 10 ? Number(id) + 4 : 4)} />
+                    <ItemFood id={(Number(id) + 5 < 10 ? Number(id) + 5 : 5)} />
                 </div>
             </section>
         </article>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FOOTER_SITEMAP } from "../../constant/sitemap"
+import { FOOTER_SITEMAP } from "../../constants/sitemap"
 import { SendOutlined } from "@ant-design/icons"
 import { Input } from "antd"
 

@@ -1,11 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useRef } from "react";
-
-import { HEADER_SITEMAP, HEADER_ACTION} from "../../constant/sitemap"
-import React from "react";
+import { useRef, useState } from "react";
+import { HEADER_SITEMAP, HEADER_ACTION, IAction} from "../../constants/sitemap"
 import { AppstoreOutlined, CloseCircleTwoTone } from "@ant-design/icons";
 import { Badge, Divider, Drawer } from "antd";
-import { useSelector } from "react-redux";
+import { selectCartItemsCount } from "../../state/cart/cart-selector";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserFromUserState } from "../../state/user/user-selector";
+import { logoutSuccess } from "../../state/user/user-slice";
 
 
 const Header = () => {
@@ -13,11 +14,32 @@ const Header = () => {
   const currentUrl = useLocation().pathname;
   const headerRef = useRef(null)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  const [headerSticked, setHeaderSticked] = React.useState(false)
-  const [openDrawer, setOpenDrawer] = React.useState(false)
+  const [headerSticked, setHeaderSticked] = useState(false)
+  const [openDrawer, setOpenDrawer] = useState(false)
 
-  
+  const userData = useSelector(selectUserFromUserState);
+
+  const cartItemsCount = useSelector(selectCartItemsCount)
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    dispatch(logoutSuccess())
+  }
+
+  const handleClickAction = (item: IAction) => {
+    return () => {
+      if (item.title === "Logout") {
+        handleLogout();
+      } 
+    
+      if (item.path) {
+        navigate(item.path)
+      }
+    }
+  }
+
   window.onscroll = () => {
     if (!headerSticked && window.scrollY >= 24) {
       setHeaderSticked(true)
@@ -25,8 +47,6 @@ const Header = () => {
       setHeaderSticked(false)
     }
   }
-
-  const { cart } = useSelector((state : any) => state)
 
   return (
     <header ref={headerRef} className={`flex items-center h-16 px-[10vw] mt-6 sticky top-0  
@@ -53,19 +73,20 @@ const Header = () => {
 
       <div className="lg:flex hidden items-center ml-auto">
         {
-          HEADER_ACTION.map((item, index) => 
+          HEADER_ACTION.filter((item) => userData ? !item.hideOnLogIn : !item.showOnLogIn)
+            .map((item, index) => 
               (
-                <div key={index} onClick={() => item.path && navigate(item.path)}
+                <div key={index} onClick={handleClickAction(item)}
                   className={`text-white w-10 h-10 ml-4 flex items-center justify-center rounded-full hover:bg-[#333] hover:cursor-pointer ${headerSticked && currentUrl === '/' && '!text-[#333] hover:bg-[#ccc]'}`} 
-                > 
-                  {
-                    item.title !== "Cart" ? item.icon : (
-                      <Badge count={cart.listProducts.length} size="small" className={`text-white text-base  ${headerSticked && currentUrl === '/' && '!text-[#333]'}`}>
-                        {item.icon}
-                      </Badge>
-                    )
-                  }  
-                </div>            
+                  > 
+                    {
+                      item.title !== "Cart" ? item.icon : (
+                        <Badge count={cartItemsCount} size="small" className={`text-white text-base  ${headerSticked && currentUrl === '/' && '!text-[#333]'}`}>
+                          {item.icon}
+                        </Badge>
+                      )
+                    }
+                  </div>
               ))
         }
       </div>
@@ -82,31 +103,31 @@ const Header = () => {
             />
           </div>
         }>
-          <nav className="flex flex-col">
-            {
-              HEADER_SITEMAP.map((item, index) => (
-                <Link to={item.path} key={index} className={`text-text relative text-xl p-2 pt-0 
-                  ${currentUrl === item.path && 'font-bold !text-primary'}`
-                } onClick={() => setOpenDrawer(prv => !prv)}
-                >
-                  {item.title}
-                </Link>
-              ))
-            }
+        <nav className="flex flex-col">
+          {
+            HEADER_SITEMAP.map((item, index) => (
+              <Link to={item.path} key={index} className={`text-text relative text-xl p-2 pt-0 
+                ${currentUrl === item.path && 'font-bold !text-primary'}`
+              } onClick={() => setOpenDrawer(prv => !prv)}
+              >
+                {item.title}
+              </Link>
+            ))
+          }
 
-            <Divider />
-            {
-              HEADER_ACTION.map((item, index) => (
-                <div key={index} onClick={() => {item.path && navigate(item.path);  setOpenDrawer(prv => !prv)}}
-                  className={`text-text rounded-full text-xl p-2 w-full`} 
-                > 
-                  {item.icon} 
-                  <span className="ml-2">
-                    {item.title}
-                  </span>
-                </div>
-              ))
-            }
+          <Divider />
+          {
+            HEADER_ACTION.map((item, index) => (
+              <div key={index} onClick={() => {item.path && navigate(item.path);  setOpenDrawer(prv => !prv)}}
+                className={`text-text rounded-full text-xl p-2 w-full`} 
+              > 
+                {item.icon} 
+                <span className="ml-2">
+                  {item.title}
+                </span>
+              </div>
+            ))
+          }
         </nav>
 
         </Drawer>

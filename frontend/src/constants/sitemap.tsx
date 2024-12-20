@@ -1,14 +1,16 @@
-import { SearchOutlined, ShoppingOutlined, UserOutlined } from "@ant-design/icons";
+import { LogoutOutlined, SearchOutlined, ShoppingOutlined, UserOutlined } from "@ant-design/icons";
 
 interface ISitemap {
     title: string;
     path: string;
 }
 
-interface IAction {
+export interface IAction {
   title: string;
   icon?: React.ReactElement;
   path?: string;
+  hideOnLogIn?: boolean;
+  showOnLogIn?: boolean;
 }
 
 export const HEADER_SITEMAP : Array<ISitemap>= [
@@ -55,7 +57,20 @@ export const HEADER_ACTION : Array<IAction> = [
   {
     title: "Login",
     icon: <UserOutlined />,
-    path: '/login'
+    path: '/login',
+    hideOnLogIn: true
+  },
+  {
+    title: "My Account",
+    icon: <UserOutlined/>,
+    path: "/account",
+    showOnLogIn: true
+  },
+  {
+    title: "Logout",
+    icon: <LogoutOutlined/>,
+    path: "/",
+    showOnLogIn: true
   }
 ] 
 
