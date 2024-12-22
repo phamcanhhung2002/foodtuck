@@ -29,6 +29,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<Food> getCart(List<Long> foodIds) {
-        return foodRepository.findAllById(foodIds);
+        return foodRepository.findByIdIn(foodIds);
     }
 }

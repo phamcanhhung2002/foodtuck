@@ -5,6 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -18,8 +22,8 @@ public class Food {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "food_title")
-    private String foodTitle;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "category")
     private String category;
@@ -35,4 +39,31 @@ public class Food {
 
     @Column(name = "sale_price")
     private Integer salePrice;
+
+    @Column(name = "file_names")
+    private String fileNames;
+
+    @Transient
+    private List<String> images;
+
+    @PostLoad
+    void loadImages() {
+        images = Arrays.stream(fileNames.split("#")).toList();
+    }
+
+    @PrePersist
+    void updateFileNames() {
+        fileNames = String.join("#", images);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Food food = (Food) o;
+        return Objects.equals(id, food.id);
+    }
+
+    @Override
+    public int hashCode() { return Objects.hash(id); }
 }

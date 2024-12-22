@@ -23,4 +23,6 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
             Integer priceEnd,
             Boolean sortByPrice,
             Pageable pageable);
+
+    List<Food> findByIdIn(List<Long> foodIds);
 }

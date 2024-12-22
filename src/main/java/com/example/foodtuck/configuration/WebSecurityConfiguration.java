@@ -46,7 +46,7 @@ public class WebSecurityConfiguration {
                 .sessionManagement(sess ->
                         sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/api/v1/food/**",
+                        auth.requestMatchers("/api/v1/foods/**",
                                         "/api/v1/auth/**",
                                         "/api/v1/registration/**",
                                         "/api/v1/users/cart")

@@ -9,8 +9,8 @@ import java.util.List;
 @Setter
 public class FoodResponse {
     private Long id;
-    private String foodTitle;
+    private String name;
     private Integer price;
     private Integer salePrice;
-    private List<String> imageLinks;
+    private List<String> images;
 }
