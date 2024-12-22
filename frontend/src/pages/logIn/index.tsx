@@ -19,8 +19,6 @@ const LogIn = () => {
   const [userData, setUserData] = useState<UserData>({ email: "", password: ""});
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     if (params.code) {
       dispatch(activateAccount(params.code));
     }
@@ -62,8 +60,6 @@ const LogIn = () => {
             <Input.Password placeholder='Password' className='rounded-none h-11 mb-4' prefix={<LockOutlined className='text-lg mr-2'/>}
               value={userData.password} onChange={(e) => setUserData({...userData, password: e.target.value})}
             />
-
-            <Checkbox className='overide-shop-checkbox mb-8'>Remember me?</Checkbox>
 
             <Button className='rounded-none h-11 bg-primary text-white mb-4' onClick={handleClickLogin}>Sign In</Button>
             

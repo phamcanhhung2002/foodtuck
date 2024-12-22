@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthErrors, LoadingStatus } from "../../types/types";
-import { activateAccount, login } from "./auth-thunk";
+import { activateAccount, login, registration } from "./auth-thunk";
 
 export interface AuthState {
   email: string;
-  isRegistered: boolean;
   loadingState: LoadingStatus;
   success: string;
   error: string;
@@ -13,7 +12,6 @@ export interface AuthState {
 
 export const initialState: AuthState = {
   email: "",
-  isRegistered: false,
   loadingState: LoadingStatus.LOADING,
   success: "",
   error: "",
@@ -34,6 +32,17 @@ export const authSlice = createSlice({
     builder.addCase(login.rejected, (state, action) => {
       state.error = action.payload!;
     });
+    builder.addCase(registration.pending, (state) => {
+      state.loadingState = LoadingStatus.LOADING
+    })
+    builder.addCase(registration.fulfilled, (state) => {
+      state.loadingState = LoadingStatus.LOADED
+      state.errors = {}
+    })
+    builder.addCase(registration.rejected, (state, action) => {
+      state.errors = action.payload!;
+      state.loadingState = LoadingStatus.LOADED
+    })
     builder.addCase(activateAccount.fulfilled, (state, action) => {
       state.success = action.payload;
     })

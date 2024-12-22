@@ -1,10 +1,12 @@
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { UserData, UserResponse } from "../../types/user";
+import { UserData, UserRegistration, UserResponse } from "../../types/user";
 import RequestService from "../../utils/request-service";
-import { ACCOUNT, AUTH_LOGIN, REGISTRATION_ACTIVATE } from "../../constants/urlConstants";
+import { AUTH_LOGIN, REGISTRATION, REGISTRATION_ACTIVATE } from "../../constants/urlConstants";
 import { NavigateFunction } from "react-router-dom"
 import { setUser } from "../user/user-slice";
+import { AuthErrors } from "../../types/types";
+import { ACCOUNT } from "../../constants/routeConstants";
 
 export const login = createAsyncThunk<
     UserResponse,
@@ -31,5 +33,16 @@ export const activateAccount = createAsyncThunk<string, string, { rejectValue: s
     } catch (error: any) {
       return thunkApi.rejectWithValue(error.response.data);
     }
+  }
+)
+
+export const registration = createAsyncThunk<{}, UserRegistration, { rejectValue: AuthErrors }> (
+  "auth/registration",
+  async (UserRegistrationData, thunkApi) => {
+    try {
+      await RequestService.post(REGISTRATION, UserRegistrationData)
+    } catch (error: any) {
+      return thunkApi.rejectWithValue(error.response.data)
+    } 
   }
 )

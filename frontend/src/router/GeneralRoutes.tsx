@@ -13,10 +13,11 @@ import Checkout from "../pages/checkout"
 import DetailProduct from "../pages/detailProduct"
 import DetailBlog from "../pages/detailBlog"
 import Menu from "../pages/menu"
+import { ACTIVATE, BASE, CART, LOGIN, SIGNUP } from "../constants/routeConstants"
 
 const GeneralRoutes : Array<IRoutesProps> = [
     {
-        path: '/',  
+        path: BASE,  
         element: <Suspense> <Home /> </Suspense>,
         title: 'Home',
     },
@@ -46,12 +47,12 @@ const GeneralRoutes : Array<IRoutesProps> = [
         title: 'Team'
     },
     {
-        path: '/login',
+        path: LOGIN,
         element: <Suspense> <LogIn /> </Suspense>,
         title: 'Login'
     },
     {
-        path: '/signup',
+        path: SIGNUP,
         element: <Suspense> <SignUp /> </Suspense>,
         title: 'SignUp'
     },
@@ -61,7 +62,7 @@ const GeneralRoutes : Array<IRoutesProps> = [
         title: 'FAQ'
     },
     {
-        path: 'cart',
+        path: CART,
         element: <Suspense> <ShoppingCart /> </Suspense>,
         title: "Shopping Cart"
     },
@@ -80,6 +81,11 @@ const GeneralRoutes : Array<IRoutesProps> = [
         path: 'blog/:id',
         element: <Suspense> <DetailBlog /> </Suspense>,
         title: "Detail Blog"
+    },
+    {
+        path: `${ACTIVATE}/:code`,
+        element: <Suspense> <LogIn /> </Suspense>,
+        title: "Activation"
     },
 ]
 

@@ -11,7 +11,7 @@ import Spinner from "../../components/Spinner"
 import { useDispatch, useSelector } from 'react-redux'
 
 const ShoppingCart = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<any>();
   const navigate = useNavigate();
   const foods = useSelector(selectCartItems);
   const isCartLoading = useSelector(selectIsCartLoading)
@@ -19,7 +19,6 @@ const ShoppingCart = () => {
   const [foodInCart, setFoodInCart] = useState(() => new Map());
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     const foodsFromLocalStorage: Map<number, number> = new Map(
       JSON.parse(localStorage.getItem("foods") as string)
     )

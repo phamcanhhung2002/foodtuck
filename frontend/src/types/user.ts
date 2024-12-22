@@ -20,6 +20,14 @@ export interface UserData {
   password: string;
 }
 
+export interface UserRegistration {
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  password2: string;
+}
+
 export interface UserEditErrors {
   firstNameError: string;
   lastNameError: string;

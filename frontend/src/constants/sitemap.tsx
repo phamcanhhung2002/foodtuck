@@ -1,4 +1,5 @@
-import { LogoutOutlined, SearchOutlined, ShoppingOutlined, UserOutlined } from "@ant-design/icons";
+import { LoginOutlined, LogoutOutlined, SearchOutlined, ShoppingOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
+import { ACCOUNT, BASE, CART, LOGIN, SIGNUP } from "./routeConstants";
 
 interface ISitemap {
     title: string;
@@ -16,7 +17,7 @@ export interface IAction {
 export const HEADER_SITEMAP : Array<ISitemap>= [
     {
       title: 'Home',
-      path: '/',
+      path: BASE,
     },
     {
       title: 'Menu',
@@ -52,24 +53,30 @@ export const HEADER_ACTION : Array<IAction> = [
   {
     title: "Cart",
     icon: <ShoppingOutlined />,
-    path: '/cart'
+    path: CART
   },
   {
     title: "Login",
-    icon: <UserOutlined />,
-    path: '/login',
+    icon: <LoginOutlined />,
+    path: LOGIN,
+    hideOnLogIn: true
+  },
+  {
+    title: "Sign Up",
+    icon: <UserAddOutlined/>,
+    path: SIGNUP,
     hideOnLogIn: true
   },
   {
     title: "My Account",
     icon: <UserOutlined/>,
-    path: "/account",
+    path: ACCOUNT,
     showOnLogIn: true
   },
   {
     title: "Logout",
     icon: <LogoutOutlined/>,
-    path: "/",
+    path: BASE,
     showOnLogIn: true
   }
 ] 

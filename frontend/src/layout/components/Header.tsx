@@ -61,8 +61,8 @@ const Header = () => {
         {
           HEADER_SITEMAP.map((item, index) => (
             <Link to={item.path} key={index} className={`text-text ml-8 ${currentUrl !== '/' && 'text-white'} relative 
-              ${currentUrl === item.path ? 'font-bold after:block after:w-6 after:h-0.5 after:bg-primary after:absolute after:left-0 animate-spin' 
-              : 'before:hidden before:w-[6px] before:h-[6px] before:rounded-full before:bg-primary before:absolute before:left-1/2 before:-top-2 hover:before:block before:ease-in before:duration-200'}`
+              ${currentUrl === item.path ? 'font-bold after:block after:w-6 after:h-0.5 after:bg-primary after:absolute after:left-0 after:-bottom-1 animate-spin' 
+              : 'before:hidden before:block before:w-6 before:h-0.5 before:bg-disabledGreen before:absolute before:left-0 before:-bottom-1 hover:before:block before:ease-in before:duration-200'}`
             }
             >
               {item.title}
@@ -118,7 +118,7 @@ const Header = () => {
           <Divider />
           {
             HEADER_ACTION.map((item, index) => (
-              <div key={index} onClick={() => {item.path && navigate(item.path);  setOpenDrawer(prv => !prv)}}
+              <div key={index} onClick={() => {handleClickAction(item);  setOpenDrawer(prv => !prv)}}
                 className={`text-text rounded-full text-xl p-2 w-full`} 
               > 
                 {item.icon} 
