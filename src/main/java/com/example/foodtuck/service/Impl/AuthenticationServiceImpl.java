@@ -60,7 +60,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Transactional
     public String registerUser(User user, String password2) {
 
-        if (user.getPassword() != null && !user.getPassword().equals(password2)) {
+        if (!user.getPassword().equals(password2)) {
             throw new PasswordException(PASSWORDS_DO_NOT_MATCH);
         }
 

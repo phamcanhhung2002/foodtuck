@@ -10,6 +10,7 @@ public class ErrorMessage {
     public static final String ACTIVATION_CODE_NOT_FOUND = "Activation code not found.";;
     public static final String EMPTY_FIRST_NAME = "First name cannot be empty";
     public static final String EMPTY_LAST_NAME = "Last name cannot be empty";
+    public static final String EMPTY_PASSWORD = "Password cannot be empty";
     public static final String PASSWORD_CHARACTER_LENGTH = "The password must be between 6 and 16 characters long";
     public static final String PASSWORD2_CHARACTER_LENGTH = "The password confirmation must be between 6 and 16 characters long";
     public static final String INCORRECT_EMAIL = "Incorrect email";
