@@ -24,6 +24,7 @@ const ShoppingCart = () => {
     )
 
     dispatch(fetchCart(Array.from(foodsFromLocalStorage.keys())))
+
     foodsFromLocalStorage.forEach((value: number, key: number) => {
       setFoodInCart(foodInCart.set(key, value))
     })
@@ -47,7 +48,7 @@ const ShoppingCart = () => {
   }
 
   const setFoods = (foodId: number, foodCount: number) => {
-    setFoodInCart(foodInCart.set(foodId, foodCount));
+    setFoodInCart(new Map(foodInCart.set(foodId, foodCount)));
     localStorage.setItem("foods", JSON.stringify(Array.from(foodInCart.entries())))
   }
 

@@ -4,7 +4,7 @@ export interface FoodResponse {
   price: number;
   originalPrice: number;
   images: Array<string>
-  rate: number;
+  rating: number;
 }
 
 export interface FullFoodResponse extends FoodResponse {

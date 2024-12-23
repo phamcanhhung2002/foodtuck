@@ -12,5 +12,6 @@ public class FoodResponse {
     private String name;
     private Integer price;
     private Integer originalPrice;
+    private Double rating;
     private List<String> images;
 }

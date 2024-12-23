@@ -17,7 +17,7 @@ const TableCart: FC<PropsType> = ({items, deleteFromCart, onChangeFoodItemCount,
             <tr>
                 {
                     labelColTable.map((label, index) => (
-                        <th key={index} className={`${index === items.length - 1 && "hidden"}  w-[${label.size}%] text-left font-bold text-lg text-[#333] ${label.center && 'text-center'}`}>{label.title}</th>
+                        <th key={index} className={`w-[${label.size}%] text-left font-bold text-lg text-[#333] ${label.center && 'text-center'}`}>{label.title}</th>
                     ))
                 }
             </tr>
@@ -28,7 +28,7 @@ const TableCart: FC<PropsType> = ({items, deleteFromCart, onChangeFoodItemCount,
                     <CellTableCart 
                         key={item.id}
                         item={item}
-                        itemInCart={itemInCart.get(item.id)!}
+                        itemCount={itemInCart.get(item.id)!}
                         deleteFromCart={deleteFromCart}
                         onChangeFoodItemCount={onChangeFoodItemCount}
                     />
