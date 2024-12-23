@@ -14,11 +14,31 @@ export interface AuthErrors {
     password2Error: string;
 }
 
+export interface HeaderResponse<T> {
+	items: Array<T>;
+	pagesCount: number;
+	totalElements: number;
+}
+
+export interface FilterParamsType {
+	categories?: Array<string>;
+	prices: Array<number>;
+	currentPage?: number;
+    pageSize?: number;
+	sortByPrice?: boolean;	
+}
+
+export interface FoodsSearchRequest {
+    text: string;
+    currentPage: number;
+    pageSize: number;
+}
+
 export interface Food {
     id: string,
     name: string,
     price: number,
-    salePrice: number | null,
+    originalPrice: number,
     reviews: [],
     rate: number,
     qtyReview: number,

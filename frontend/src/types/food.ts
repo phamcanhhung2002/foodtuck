@@ -1,9 +1,9 @@
 export interface FoodResponse {
   id: number;
-  foodTitle: string;
+  name: string;
   price: number;
-  salePrice: number;
-  imageLinks: Array<string>
+  originalPrice: number;
+  images: Array<string>
   rate: number;
 }
 

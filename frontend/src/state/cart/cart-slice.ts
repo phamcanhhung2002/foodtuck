@@ -67,7 +67,7 @@ const calculatePrice = (foods: Array<FoodResponse>): number => {
         const food = foods.find((food) => food.id === key);
 
         if (food) {
-            total += food.salePrice * value;
+            total += food.price * value;
         }
     })
     return total;

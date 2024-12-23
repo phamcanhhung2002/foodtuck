@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input } from 'antd'
+import { Button, Input } from 'antd'
 import CoverPage from '../../components/CoverPage'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'

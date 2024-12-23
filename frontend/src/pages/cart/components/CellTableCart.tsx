@@ -21,21 +21,21 @@ const CellTableCart: FC<PropsType> = ({item, itemInCart, deleteFromCart, onChang
 
   const handleRemoveProduct = () => {
     deleteFromCart(item.id)
-    toast.success(`Remove ${item.foodTitle} from cart successfully`)
+    toast.success(`Remove ${item.name} from cart successfully`)
   }
 
   return (    
     <tr className="border border-slate-600">
     <td className={`${labelColTable[0].size} flex gap-3 h-[120px] border-b border-[#E0E0E0]`}>
-    <img src={item.imageLinks[0]} alt="food" className="w-[100px] h-[100px] object-cover "/>
+    <img src={item.images[0]} alt="food" className="w-[100px] h-[100px] object-cover "/>
     <div className="w-full">
-      <p className="font-bold text-base">{item.foodTitle}</p>
+      <p className="font-bold text-base">{item.name}</p>
       <Rate disabled defaultValue={item.rate} className="text-primary text-base max-lg:hidden"/>
     </div>
     </td>
 
     <td className={`${labelColTable[1].size} text-base text-[#333] border-b border-[#E0E0E0] text-center`}>
-    {item.salePrice}$
+    {item.price}$
     </td>
 
     <td className={`${labelColTable[2].size} text-left font-bold text-lg text-[#333] border-b border-[#E0E0E0]`}>
@@ -65,7 +65,7 @@ const CellTableCart: FC<PropsType> = ({item, itemInCart, deleteFromCart, onChang
 
 
     <td className={`${labelColTable[3].size} font-bold text-base text-[#333] border-b border-[#E0E0E0] text-center`}>
-      {item.salePrice * itemCount}$
+      {item.price * itemCount}$
     </td>
 
     <td className={`${labelColTable[4].size} font-bold text-lg text-[#333] border-b border-[#E0E0E0] max-lg:hidden`}>

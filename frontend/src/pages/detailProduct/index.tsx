@@ -68,7 +68,7 @@ const DetailProduct = () => {
 
                     <Divider />
                 
-                    <p className="font-bold text-[32px] text-[#333]">{product.salePrice}.00$</p>
+                    <p className="font-bold text-[32px] text-[#333]">{product.price}.00$</p>
 
                     <div className="flex items-center gap-3">
                         <Rate defaultValue={product.rate} className="text-primary"/>
