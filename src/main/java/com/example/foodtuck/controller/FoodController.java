@@ -3,6 +3,7 @@ package com.example.foodtuck.controller;
 import com.example.foodtuck.dto.HeaderResponse;
 import com.example.foodtuck.dto.food.FoodResponse;
 import com.example.foodtuck.dto.food.FoodSearchRequest;
+import com.example.foodtuck.dto.food.FullFoodResponse;
 import com.example.foodtuck.dto.food.SearchTextRequest;
 import com.example.foodtuck.mapper.FoodMapper;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,11 @@ import static com.example.foodtuck.constants.PathConstants.*;
 public class FoodController {
 
     private final FoodMapper foodMapper;
+
+    @GetMapping(FOOD_ID)
+    public ResponseEntity<FullFoodResponse> getFoodById(@PathVariable Long foodId) {
+        return ResponseEntity.ok(foodMapper.getFoodById(foodId));
+    }
 
     @PostMapping(SEARCH)
     public ResponseEntity<List<FoodResponse>> findFoodsByFilterParams(@RequestBody FoodSearchRequest filter,

@@ -15,4 +15,5 @@ public class ErrorMessage {
     public static final String PASSWORD2_CHARACTER_LENGTH = "The password confirmation must be between 6 and 16 characters long";
     public static final String INCORRECT_EMAIL = "Incorrect email";
     public static final String EMAIL_CANNOT_BE_EMPTY = "Email cannot be empty";
+    public static final String FOOD_NOT_FOUND = "Food not found.";
 }

@@ -1,5 +1,6 @@
 package com.example.foodtuck.service;
 
+import com.example.foodtuck.domain.Food;
 import com.example.foodtuck.dto.food.FoodSearchRequest;
 import com.example.foodtuck.repository.projection.FoodProjection;
 import org.springframework.data.domain.Page;
@@ -10,4 +11,6 @@ public interface FoodService {
     Page<FoodProjection> findFoodsByFilterParams(FoodSearchRequest filter, Pageable pageable);
 
     Page<FoodProjection> findByInputText(String text, Pageable pageable);
+
+    Food getFoodById(Long foodId);
 }

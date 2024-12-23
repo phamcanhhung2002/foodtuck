@@ -3,6 +3,7 @@ package com.example.foodtuck.mapper;
 import com.example.foodtuck.dto.HeaderResponse;
 import com.example.foodtuck.dto.food.FoodResponse;
 import com.example.foodtuck.dto.food.FoodSearchRequest;
+import com.example.foodtuck.dto.food.FullFoodResponse;
 import com.example.foodtuck.repository.projection.FoodProjection;
 import com.example.foodtuck.service.FoodService;
 import lombok.RequiredArgsConstructor;
@@ -25,5 +26,9 @@ public class FoodMapper {
     public HeaderResponse<FoodResponse> findByInputText(String text, Pageable pageable) {
         Page<FoodProjection> foods = foodService.findByInputText(text, pageable);
         return commonMapper.getHeaderResponse(foods.getContent(), foods.getTotalPages(), foods.getTotalElements(), FoodResponse.class);
+    }
+
+    public FullFoodResponse getFoodById(Long foodId) {
+        return commonMapper.convertToResponse(foodService.getFoodById(foodId), FullFoodResponse.class);
     }
 }
