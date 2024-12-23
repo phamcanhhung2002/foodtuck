@@ -1,11 +1,14 @@
 package com.example.foodtuck.domain;
 
+import com.example.foodtuck.dto.utils.Images;
+import com.example.foodtuck.dto.utils.SerializableField;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -51,7 +54,9 @@ public class Food {
 
     @PostLoad
     void deserializeImages() throws JsonProcessingException {
-        images = List.of(SerializableField.objectMapper.readValue(serializedImages, String[].class));
+        images = Arrays.stream(
+                SerializableField.objectMapper.readValue(serializedImages, Images.class).getUrls()
+            ).toList();
     }
 
     @PrePersist

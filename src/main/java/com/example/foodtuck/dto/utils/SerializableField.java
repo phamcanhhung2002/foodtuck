@@ -1,4 +1,4 @@
-package com.example.foodtuck.domain;
+package com.example.foodtuck.dto.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
