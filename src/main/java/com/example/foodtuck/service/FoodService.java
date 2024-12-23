@@ -8,4 +8,6 @@ import org.springframework.data.domain.Pageable;
 public interface FoodService {
 
     Page<FoodProjection> findFoodsByFilterParams(FoodSearchRequest filter, Pageable pageable);
+
+    Page<FoodProjection> findByInputText(String text, Pageable pageable);
 }

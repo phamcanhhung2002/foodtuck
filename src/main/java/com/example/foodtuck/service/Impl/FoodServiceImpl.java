@@ -25,4 +25,9 @@ public class FoodServiceImpl implements FoodService {
                 pageable
         );
     }
+
+    @Override
+    public Page<FoodProjection> findByInputText(String text, Pageable pageable) {
+        return foodRepository.findByInputText(text, pageable);
+    }
 }

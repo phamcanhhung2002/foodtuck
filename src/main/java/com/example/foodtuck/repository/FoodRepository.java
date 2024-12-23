@@ -21,8 +21,14 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
             List<String> categories,
             Integer priceStart,
             Integer priceEnd,
-            Boolean sortByPrice,
+            boolean sortByPrice,
             Pageable pageable);
 
     List<Food> findByIdIn(List<Long> foodIds);
+
+    @Query("SELECT food FROM Food food " +
+            "WHERE (UPPER(food.name) LIKE UPPER(CONCAT('%',:text,'%'))) " +
+            "OR (UPPER(food.category) LIKE UPPER(CONCAT('%',:text,'%')))" +
+            "ORDER BY food.price DESC")
+    Page<FoodProjection> findByInputText(String text, Pageable pageable);
 }

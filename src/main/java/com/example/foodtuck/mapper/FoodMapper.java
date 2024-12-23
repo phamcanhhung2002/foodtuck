@@ -21,4 +21,9 @@ public class FoodMapper {
         Page<FoodProjection> foods = foodService.findFoodsByFilterParams(filter, pageable);
         return commonMapper.getHeaderResponse(foods.getContent(), foods.getTotalPages(), foods.getTotalElements(), FoodResponse.class);
     }
+
+    public HeaderResponse<FoodResponse> findByInputText(String text, Pageable pageable) {
+        Page<FoodProjection> foods = foodService.findByInputText(text, pageable);
+        return commonMapper.getHeaderResponse(foods.getContent(), foods.getTotalPages(), foods.getTotalElements(), FoodResponse.class);
+    }
 }
