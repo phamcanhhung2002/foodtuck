@@ -15,8 +15,8 @@ public interface FoodRepository extends JpaRepository<Food, Long> {
 
     @Query("SELECT food FROM Food food " +
             "WHERE (coalesce(:categories, null) IS NULL OR food.category IN :categories) " +
-            "AND (coalesce(:priceStart, null) IS NULL OR food.salePrice BETWEEN :priceStart AND :priceEnd) " +
-            "ORDER BY CASE WHEN :sortByPrice = true THEN food.salePrice ELSE -food.salePrice END ASC")
+            "AND (coalesce(:priceStart, null) IS NULL OR food.price BETWEEN :priceStart AND :priceEnd) " +
+            "ORDER BY CASE WHEN :sortByPrice = true THEN food.price ELSE -food.price END ASC")
     Page<FoodProjection> findFoodsByFilterParams(
             List<String> categories,
             Integer priceStart,

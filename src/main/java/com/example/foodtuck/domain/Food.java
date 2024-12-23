@@ -31,16 +31,19 @@ public class Food {
     @Column(name = "rating")
     private Double rating;
 
-    @Column(name = "description")
+    @Column(name = "quick_intro")
+    private String quickIntro;
+
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "price")
     private Integer price;
 
-    @Column(name = "sale_price")
-    private Integer salePrice;
+    @Column(name = "original_price")
+    private Integer originalPrice;
 
-    @Column(name = "serialized_images")
+    @Column(name = "serialized_images", columnDefinition = "TEXT")
     private String serializedImages;
 
     @Transient

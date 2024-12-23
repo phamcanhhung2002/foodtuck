@@ -11,6 +11,6 @@ public class FoodResponse {
     private Long id;
     private String name;
     private Integer price;
-    private Integer salePrice;
+    private Integer originalPrice;
     private List<String> images;
 }

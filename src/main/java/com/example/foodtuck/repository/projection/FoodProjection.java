@@ -7,6 +7,6 @@ public interface FoodProjection {
     String getName();
     String getDescription();
     Integer getPrice();
-    Integer getSalePrice();
+    Integer getOriginalPrice();
     List<String> getImages();
 }
