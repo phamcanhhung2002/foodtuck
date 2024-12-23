@@ -1,11 +1,11 @@
 package com.example.foodtuck.domain;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -40,20 +40,20 @@ public class Food {
     @Column(name = "sale_price")
     private Integer salePrice;
 
-    @Column(name = "file_names")
-    private String fileNames;
+    @Column(name = "serialized_images")
+    private String serializedImages;
 
     @Transient
     private List<String> images;
 
     @PostLoad
-    void loadImages() {
-        images = Arrays.stream(fileNames.split("#")).toList();
+    void deserializeImages() throws JsonProcessingException {
+        images = List.of(SerializableField.objectMapper.readValue(serializedImages, String[].class));
     }
 
     @PrePersist
-    void updateFileNames() {
-        fileNames = String.join("#", images);
+    void serializeImages() throws JsonProcessingException {
+        serializedImages = SerializableField.objectMapper.writeValueAsString(images);
     }
 
     @Override
