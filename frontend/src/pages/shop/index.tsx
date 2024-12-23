@@ -118,8 +118,6 @@ const Shop = () => {
                     />
                 </div>
             </section>
-            
-
         </article>
     )
 }

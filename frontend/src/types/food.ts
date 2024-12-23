@@ -8,6 +8,7 @@ export interface FoodResponse {
 }
 
 export interface FullFoodResponse extends FoodResponse {
-  quickIntroduction: string;
+  category: string;
+  quickIntro: string;
   description: string;
 }
