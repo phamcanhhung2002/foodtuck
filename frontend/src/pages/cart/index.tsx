@@ -9,6 +9,7 @@ import { fetchCart } from '../../state/cart/cart-thunk'
 import { calculateCartPrice, removeFoodById, resetCartState, setCartItemsCount } from '../../state/cart/cart-slice'
 import Spinner from "../../components/Spinner"
 import { useDispatch, useSelector } from 'react-redux'
+import { BASE, ORDER } from '../../constants/routeConstants'
 
 const ShoppingCart = () => {
   const dispatch = useDispatch<any>();
@@ -60,7 +61,7 @@ const ShoppingCart = () => {
 
   return (
     <div>
-        <CoverPage title='Shopping Cart' currentPage='Shopping Cart' listPath={[{path:'/', title: 'Home'}]}/>
+        <CoverPage title='Shopping Cart' currentPage='Shopping Cart' listPath={[{ path: BASE, title: 'Home' }]}/>
         {
           isCartLoading ? (<Spinner/>) : <>
             <TableCart 
@@ -92,7 +93,7 @@ const ShoppingCart = () => {
                 </div>
                 <Button className='flex mt-6 items-center justify-center rounded-none h-14 text-base w-full
                 text-white bg-primary hover:!bg-[#248001]' type='primary'
-                  onClick={() => navigate('./checkout')}
+                  onClick={() => navigate(ORDER)}
                 > 
                   Proceed to Checkout 
                   <SelectOutlined /> 

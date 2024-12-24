@@ -1,4 +1,5 @@
 import CoverPage from "../../components/CoverPage"
+import { BASE } from "../../constants/routeConstants"
 import HomeAboutUs from "../home/components/HomeAboutUs"
 import HomeMenu from "../home/components/HomeMenu"
 import HomeTeam from "../home/components/HomeTeam"
@@ -8,7 +9,7 @@ import AboutWhyChoose from "./components/AboutWhyChoose"
 const AboutUs = () => {
   return (
     <div className="flex flex-col gap-y-32">
-        <CoverPage title="About Us" currentPage="About" listPath={[{title:'Home', path: '/'}]}/>
+        <CoverPage title="About Us" currentPage="About" listPath={[{ title:'Home', path: BASE }]}/>
         
         <HomeAboutUs />
 

@@ -1,5 +1,6 @@
 import CoverPage from '../../components/CoverPage'
 import { PlusOutlined } from '@ant-design/icons'
+import { BASE } from '../../constants/routeConstants'
 
 const dataFAQ = [
     {title: 'How we serve food?', content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi quis modi ullam amet debitis libero veritatis enim repellat optio natus eum delectus deserunt, odit expedita eos molestiae ipsa totam quidem?"},
@@ -26,7 +27,7 @@ const ItemFAQ = ({title, content} : {title: string, content: string}) => {
 const FAQ = () => {
   return (
     <div>
-        <CoverPage title="FAQ Page" listPath={[{path:'/', title:'Home'}]} currentPage='FAQ'/>
+        <CoverPage title="FAQ Page" listPath={[{path:'/', title: BASE}]} currentPage='FAQ'/>
         
         <div className='text-[#333] flex flex-col items-center justify-center'>
             <p className='font-bold text-5xl mb-2'>Question Looks Here</p>

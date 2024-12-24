@@ -1,13 +1,14 @@
 import CoverPage from "../../components/CoverPage"
 import MenuCategory from "../../components/menu/MenuCategory"
 import MenuStatistics from "../../components/menu/MenuStatistics"
+import { BASE } from "../../constants/routeConstants"
 import HomePartner from "../home/components/HomePartner"
 
 const Menu = () => {
   return (
     <div className='min-h-screen'>
         
-        <CoverPage title='Our Menu' currentPage='Menu' listPath={[{title: "Home", path: '/'}]} />
+        <CoverPage title='Our Menu' currentPage='Menu' listPath={[{title: "Home", path: BASE}]} />
         
         <MenuCategory 
             title='Starter Menu'

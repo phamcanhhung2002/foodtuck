@@ -1,5 +1,6 @@
 import CoverPage from "../components/CoverPage"
 import ItemMember from "../components/home/ItemMember"
+import { BASE } from "../constants/routeConstants"
 import { dataMembers } from "../data"
 
 
@@ -7,7 +8,7 @@ import { dataMembers } from "../data"
 const OurChef = () => {
   return (
     <div>
-        <CoverPage title="Our Chef" currentPage="Chef" listPath={[{title: "Home", path:"/"}]}/>
+        <CoverPage title="Our Chef" currentPage="Chef" listPath={[{ title: "Home", path: BASE }]}/>
           
         <div className="grid grid-cols-5 gap-10 ">
         {

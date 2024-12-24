@@ -14,7 +14,7 @@ import { fetchCart } from '../../state/cart/cart-thunk'
 import { resetCartState } from '../../state/cart/cart-slice'
 import { addOrder } from '../../state/order/order-thunk'
 import { FoodResponse } from '../../types/food'
-import { CART } from '../../constants/routeConstants'
+import { BASE, CART } from '../../constants/routeConstants'
 import FormInput from './FormInput'
 
 interface OrderFormData {
@@ -62,7 +62,7 @@ const Checkout = () => {
 
     return (
     <div >
-        <CoverPage title='Checkout Page' currentPage='Checkout' listPath={[{title: "Home", path: '/'}]}/>
+        <CoverPage title='Checkout Page' currentPage='Checkout' listPath={[{ title: "Home", path: BASE }]}/>
 
         <Form onFinish={onFormSubmit} form={form}>
             <div className='flex gap-x-10 max-lg:flex-col'>

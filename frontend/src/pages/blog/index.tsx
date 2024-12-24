@@ -1,10 +1,11 @@
 import CoverPage from '../../components/CoverPage'
+import { BASE } from '../../constants/routeConstants'
 import BlogList from './components/BlogList'
 import BlogSidebar from './components/BlogSidebar'
 const Blog = () => {  
   return (
     <div>
-      <CoverPage currentPage='Blog' title='Blog List' listPath={[{title: 'Home', path:'/'}]}/>
+      <CoverPage currentPage='Blog' title='Blog List' listPath={[{title: 'Home', path: BASE }]}/>
 
       <div className='flex justify-between gap-10 lg:flex-row flex-col'>
         

@@ -8,5 +8,4 @@ import React from 'react';
 export interface IRoutesProps {
     path: string;
     element: React.ReactElement;
-    title: string;
 }

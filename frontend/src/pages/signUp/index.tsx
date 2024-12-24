@@ -1,5 +1,5 @@
 import CoverPage from '../../components/CoverPage'
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Form } from 'antd'
 import { LockOutlined, MailOutlined, UserOutlined } from '@ant-design/icons'
 import { UserRegistration } from '../../types/user'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,6 +9,7 @@ import FormInput from './FormInput'
 import { useEffect } from 'react'
 import { resetAuthState, setAuthLoadingState } from '../../state/auth/auth-slice'
 import { LoadingStatus } from '../../types/types'
+import { BASE } from '../../constants/routeConstants'
 
 const SignUp = () => {
     const dispatch = useDispatch<any>();
@@ -29,7 +30,7 @@ const SignUp = () => {
 
     return (
         <div className='min-h-screen'>
-            <CoverPage title='Sign Up Page' currentPage='Sign Up' listPath={[{title: 'Login', path: '/'}]} />
+            <CoverPage title='Sign Up Page' currentPage='Sign Up' listPath={[{title: 'Login', path: BASE }]} />
             <section className='flex items-center justify-center w-full '>
               <div className='lg:w-4/12 w-full shadow-[0_10px_40px_rgba(25,_90,_0,_0.3)] p-8 flex flex-col'>
                   <p className='font-bold text-[#333] text-xl mb-8'>Sign up</p>

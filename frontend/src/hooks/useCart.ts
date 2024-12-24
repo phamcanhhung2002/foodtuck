@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { CART } from "../constants/routeConstants";
 
 interface UseCart {
-  addToCart: (quantity: number) => void;
+  addToCart: (quantity?: number) => void;
 }
 
 export const useCart = (foodId: number): UseCart => {

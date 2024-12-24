@@ -12,6 +12,7 @@ import { resetFoodsState } from "../../state/foods/foods-slice"
 import Spinner from "../../components/Spinner"
 import { MAX_PAGE_VALUE, usePagination } from "../../hooks/usePagination"
 import { useSearch } from "../../hooks/useSearch"
+import { BASE } from "../../constants/routeConstants"
 
 const Shop = () => {
 	const dispatch = useDispatch<any>();
@@ -75,7 +76,7 @@ const Shop = () => {
 
     return (
         <article>
-            <CoverPage title='Shop' currentPage='Shop' listPath={[{title: "Home", path: '/'}]} />
+            <CoverPage title='Shop' currentPage='Shop' listPath={[{ title: "Home", path: BASE }]} />
 
             <section className='flex gap-x-8 items-center pt-10 mb-6 max-lg:flex-col max-lg:items-start max-lg:gap-y-3 max-lg:pt-0'>
                 <div className='flex items-center gap-x-2'>

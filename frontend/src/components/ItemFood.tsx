@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useCart } from "../hooks/useCart";
 import { FoodResponse } from "../types/food";
 import { FC } from "react";
+import { DETAIL_PRODUCT } from "../constants/routeConstants";
 
 type PropsType = {
     food: FoodResponse;
@@ -28,7 +29,7 @@ const ItemFood: FC<PropsType> = ({ food }) => {
             <div className="w-full h-full absolute bg-[rgba(0,0,0,0.6)] hidden group-hover:block" />
             <div className="w-full h-full  items-center justify-center gap-x-6 hidden group-hover:flex group-hover:brightness-150 z-10 cursor-pointer" onClick={() => navigate('/detail-product/' + id)} >
                 <Button className='bg-white text-primary hover:!bg-primary hover:text-white' type="primary" size="large" icon={<LinkOutlined />} 
-                    onClick={() => navigate('/detail-product/' + id)}
+                    onClick={() => navigate(`${DETAIL_PRODUCT}/${id}`)}
                 />
                 <Button className='bg-white text-primary hover:!bg-primary hover:text-white' type="primary" size="large" icon={<ShoppingOutlined />} 
                     onClick={handleAddToCart}

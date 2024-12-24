@@ -14,6 +14,7 @@ import { fetchFood } from "../../state/food/food-thunk"
 import { resetFoodState } from "../../state/food/food-slice"
 import Spinner from "../../components/Spinner"
 import { FoodResponse } from "../../types/food"
+import { BASE, SHOP } from "../../constants/routeConstants"
 
 const DetailProduct = () => {
     const dispatch = useDispatch<any>();
@@ -42,8 +43,8 @@ const DetailProduct = () => {
 
     return (
         <article>
-            <CoverPage title="Shop Detail" currentPage={food?.name!} listPath={[
-                {title: 'Home',path: '/'},{title: 'Shop',path: '/shop'}]}
+            <CoverPage title="Shop Detail" currentPage={food?.name!} 
+                listPath={[{ title: 'Home',path: BASE },  { title: 'Shop', path: SHOP }]}
             />
             {isFoodLoading ? (
                 <Spinner/>

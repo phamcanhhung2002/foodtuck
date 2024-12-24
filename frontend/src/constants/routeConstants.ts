@@ -1,10 +1,15 @@
 export const BASE = "/";
+export const MENU = "/menu";
+export const BLOG = "/blog";
+export const ABOUT = "/about";
+export const TEAM = "/team";
 export const LOGIN = "/login";
 export const SIGNUP = "/signup";
+export const FAQ_PATH = "/faq";
 export const CART = "/cart";
 export const SHOP = "/shop";
 export const ACTIVATE = "/activate";
-export const CHECKOUT = "/cart/checkout";
+export const ORDER = "/checkout";
+export const ORDER_FINALIZE = "/checkout/finalize"
 export const DETAIL_PRODUCT = "/detail-product"
-export const ORDER_FINALIZE = "/order/finalize"
 export const ACCOUNT = "/account";

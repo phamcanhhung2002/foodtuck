@@ -9,6 +9,7 @@ import { activateAccount, login } from '../../state/auth/auth-thunk'
 import { UserData } from '../../types/user'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
+import { BASE } from '../../constants/routeConstants'
 
 const LogIn = () => {
   const dispatch = useDispatch<any>();
@@ -48,7 +49,7 @@ const LogIn = () => {
 
   return (
     <div className='min-h-screen'>
-      <CoverPage title='Login Page' currentPage='Login' listPath={[{title: 'Home', path: '/'}]} />
+      <CoverPage title='Login Page' currentPage='Login' listPath={[{title: 'Home', path: BASE }]} />
       <section className='w-full flex items-center justify-center '>
         <div className='2xl:w-4/12 xl:w-/12 lg:w-6/12 md:w-9/12 shadow-[0_10px_40px_rgba(25,_90,_0,_0.3)] p-8 flex flex-col'>
             <p className='font-bold text-[#333] text-xl mb-8'>Sign in</p>

@@ -7,13 +7,14 @@ import ItemComment from '../../components/ItemComment'
 import { Button, Divider, Input } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import BlogSidebar from '../blog/components/BlogSidebar'
+import { BASE } from '../../constants/routeConstants'
 
 
 const DetailBlog = () => {
     const dataBlog = dataBlogs[0]
     return (
     <article>
-        <CoverPage currentPage='Blog' title='Blog List' listPath={[{title: 'Home', path:'/'}]}/>
+        <CoverPage currentPage='Blog' title='Blog List' listPath={[{title: 'Home', path: BASE}]}/>
 
         <div className='flex justify-between gap-10 mb-32'>
             <section className='w-8/12 flex flex-col gap-y-14 grow-0 text-[#4f4f4f] text-base'>

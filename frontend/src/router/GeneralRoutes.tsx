@@ -13,85 +13,70 @@ import Checkout from "../pages/checkout"
 import DetailProduct from "../pages/detailProduct"
 import DetailBlog from "../pages/detailBlog"
 import Menu from "../pages/menu"
-import { ACTIVATE, BASE, CART, CHECKOUT, DETAIL_PRODUCT, LOGIN, ORDER_FINALIZE, SHOP, SIGNUP } from "../constants/routeConstants"
+import { ABOUT, ACTIVATE, BASE, BLOG, CART, ORDER, DETAIL_PRODUCT, FAQ_PATH, LOGIN, MENU, ORDER_FINALIZE, SHOP, SIGNUP, TEAM } from "../constants/routeConstants"
 import OrderFinalize from "../pages/orderFinalize"
 
 const GeneralRoutes : Array<IRoutesProps> = [
     {
         path: BASE,  
         element: <Suspense> <Home /> </Suspense>,
-        title: 'Home',
     },
     {
-        path: '/menu',
+        path: MENU,
         element: <Suspense> <Menu /> </Suspense>,
-        title: 'Menu',
     },
     {
-        path: '/blog',
+        path: BLOG,
         element: <Suspense> <Blog /> </Suspense>,
-        title: 'Blog',
     },
     {
-        path: '/about',
+        path: ABOUT,
         element: <Suspense> <AboutUs /> </Suspense>,
-        title: 'About',
     },
     {
         path: SHOP,
         element: <Suspense> <Shop/> </Suspense>,
-        title: "Shop"
     },
     {
-        path: '/team',
+        path: TEAM,
         element: <Suspense> <OurChef /> </Suspense>,
-        title: 'Team'
     },
     {
         path: LOGIN,
         element: <Suspense> <LogIn /> </Suspense>,
-        title: 'Login'
     },
     {
         path: SIGNUP,
         element: <Suspense> <SignUp /> </Suspense>,
-        title: 'SignUp'
     },
     {
-        path: '/faq',
+        path: FAQ_PATH,
         element: <Suspense> <FAQ /> </Suspense>,
-        title: 'FAQ'
     },
     {
         path: CART,
         element: <Suspense> <ShoppingCart /> </Suspense>,
-        title: "Shopping Cart"
     },
     {
-        path: CHECKOUT,
+        path: ORDER,
         element: <Suspense> <Checkout /> </Suspense>,
-        title: 'Chef'
     },
 
     {
         path: `${DETAIL_PRODUCT}/:id`,
         element: <Suspense> <DetailProduct /> </Suspense>,
-        title: 'Detail Product'
     },
     {
-        path: 'blog/:id',
+        path: `${BLOG}/:id`,
         element: <Suspense> <DetailBlog /> </Suspense>,
-        title: "Detail Blog"
     },
     {
         path: `${ACTIVATE}/:code`,
         element: <Suspense> <LogIn /> </Suspense>,
-        title: "Activation"
     },
     {
         path: ORDER_FINALIZE,
         element: <Suspense> <OrderFinalize /> </Suspense>,
-        title: "Order Finalize"
     },
 ]
 
