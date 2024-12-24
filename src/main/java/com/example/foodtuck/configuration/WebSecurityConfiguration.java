@@ -49,7 +49,8 @@ public class WebSecurityConfiguration {
                         auth.requestMatchers("/api/v1/foods/**",
                                         "/api/v1/auth/**",
                                         "/api/v1/registration/**",
-                                        "/api/v1/users/cart")
+                                        "/api/v1/users/cart",
+                                        "/api/v1/order/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())

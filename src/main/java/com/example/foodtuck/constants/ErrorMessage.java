@@ -16,4 +16,7 @@ public class ErrorMessage {
     public static final String INCORRECT_EMAIL = "Incorrect email";
     public static final String EMAIL_CANNOT_BE_EMPTY = "Email cannot be empty";
     public static final String FOOD_NOT_FOUND = "Food not found.";
+    public static final String FILL_IN_THE_INPUT_FIELD = "Fill in the input field";
+    public static final String EMPTY_PHONE_NUMBER = "Phone number cannot be empty";
+    public static final String EMPTY_POST_INDEX = "Index cannot be empty";
 }

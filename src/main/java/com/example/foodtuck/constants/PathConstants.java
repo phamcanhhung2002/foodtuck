@@ -9,6 +9,7 @@ public class PathConstants {
     public static final String API_V1_AUTH = API_V1 + "/auth";
     public static final String API_V1_REGISTRATION = API_V1 + "/registration";
     public static final String API_V1_USERS = API_V1 + "/users";
+    public static final String API_V1_ORDER = API_V1 + "/order";
 
     public static final String CART = "/cart";
 
