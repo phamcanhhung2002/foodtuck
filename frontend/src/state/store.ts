@@ -4,13 +4,15 @@ import userReducer from './user/user-slice';
 import cartReducer from './cart/cart-slice';
 import foodsReducer from './foods/foods-slice';
 import foodReducer from './food/food-slice'
+import orderReducer  from './order/order-slice';
 
 export const storeReducer = {
   auth: authReducer,
   user: userReducer,
   cart: cartReducer,
   foods: foodsReducer,
-  food: foodReducer
+  food: foodReducer,
+  order: orderReducer
 }
 
 export const store = configureStore({

@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { FoodResponse } from "../../types/food";
+import { FilterParamsType, FoodResponse, FoodsSearchRequest } from "../../types/food";
 import RequestService from "../../utils/request-service";
-import { FilterParamsType, FoodsSearchRequest, HeaderResponse } from "../../types/types";
+import { HeaderResponse } from "../../types/types";
 import { FOODS, FOODS_SEARCH, FOODS_SEARCH_TEXT } from "../../constants/urlConstants";
 
 export const fetchFoods = createAsyncThunk<HeaderResponse<FoodResponse>, number> (  

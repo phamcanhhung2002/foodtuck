@@ -12,6 +12,9 @@ export const USERS_CART = "/users/cart";
 export const AUTH_LOGIN = "/auth/login"
 export const REGISTRATION_ACTIVATE = "/registration/activate";
 
+// order
+export const ORDER = "/order"
+
 // foods
 export const FOODS_SEARCH = "/foods/search"
 export const FOODS_SEARCH_TEXT = "/foods/search/text"

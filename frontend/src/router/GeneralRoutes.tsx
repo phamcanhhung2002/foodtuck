@@ -13,7 +13,8 @@ import Checkout from "../pages/checkout"
 import DetailProduct from "../pages/detailProduct"
 import DetailBlog from "../pages/detailBlog"
 import Menu from "../pages/menu"
-import { ACTIVATE, BASE, CART, LOGIN, SIGNUP } from "../constants/routeConstants"
+import { ACTIVATE, BASE, CART, CHECKOUT, DETAIL_PRODUCT, LOGIN, ORDER_FINALIZE, SHOP, SIGNUP } from "../constants/routeConstants"
+import OrderFinalize from "../pages/orderFinalize"
 
 const GeneralRoutes : Array<IRoutesProps> = [
     {
@@ -37,7 +38,7 @@ const GeneralRoutes : Array<IRoutesProps> = [
         title: 'About',
     },
     {
-        path: '/shop',
+        path: SHOP,
         element: <Suspense> <Shop/> </Suspense>,
         title: "Shop"
     },
@@ -67,13 +68,13 @@ const GeneralRoutes : Array<IRoutesProps> = [
         title: "Shopping Cart"
     },
     {
-        path: '/cart/checkout',
+        path: CHECKOUT,
         element: <Suspense> <Checkout /> </Suspense>,
         title: 'Chef'
     },
 
     {
-        path: '/detail-product/:id',
+        path: `${DETAIL_PRODUCT}/:id`,
         element: <Suspense> <DetailProduct /> </Suspense>,
         title: 'Detail Product'
     },
@@ -86,6 +87,11 @@ const GeneralRoutes : Array<IRoutesProps> = [
         path: `${ACTIVATE}/:code`,
         element: <Suspense> <LogIn /> </Suspense>,
         title: "Activation"
+    },
+    {
+        path: ORDER_FINALIZE,
+        element: <Suspense> <OrderFinalize /> </Suspense>,
+        title: "Order Finalize"
     },
 ]
 

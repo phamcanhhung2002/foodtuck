@@ -2,6 +2,9 @@ export const BASE = "/";
 export const LOGIN = "/login";
 export const SIGNUP = "/signup";
 export const CART = "/cart";
+export const SHOP = "/shop";
 export const ACTIVATE = "/activate";
-
+export const CHECKOUT = "/cart/checkout";
+export const DETAIL_PRODUCT = "/detail-product"
+export const ORDER_FINALIZE = "/order/finalize"
 export const ACCOUNT = "/account";

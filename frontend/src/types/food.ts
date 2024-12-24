@@ -12,3 +12,17 @@ export interface FullFoodResponse extends FoodResponse {
   quickIntro: string;
   description: string;
 }
+
+export interface FilterParamsType {
+	categories?: Array<string>;
+	prices: Array<number>;
+	currentPage?: number;
+  pageSize?: number;
+	sortByPrice?: boolean;	
+}
+
+export interface FoodsSearchRequest {
+  text: string;
+  currentPage: number;
+  pageSize: number;
+}

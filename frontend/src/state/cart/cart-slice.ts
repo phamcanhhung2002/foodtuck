@@ -41,9 +41,7 @@ export const cartSlice = createSlice({
     setCartItemsCount: (state, action: PayloadAction<number>) => {
         state.cartItemsCount = action.payload;
     },
-    resetCartState(state) {
-        state.loadingState = LoadingStatus.LOADING;
-    }
+    resetCartState: () => initialState
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCart.pending, (state) => {
