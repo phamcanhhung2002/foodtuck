@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -49,8 +50,9 @@ public class WebSecurityConfiguration {
                         auth.requestMatchers("/api/v1/foods/**",
                                         "/api/v1/auth/**",
                                         "/api/v1/registration/**",
-                                        "/api/v1/users/cart",
-                                        "/api/v1/order/**")
+                                        "/api/v1/users/cart")
+                                .permitAll()
+                                .requestMatchers(HttpMethod.POST, "/api/v1/order")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated())

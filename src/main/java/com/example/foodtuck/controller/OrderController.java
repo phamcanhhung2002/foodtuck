@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static com.example.foodtuck.constants.PathConstants.API_V1_ORDER;
+import static com.example.foodtuck.constants.PathConstants.ORDER_ID;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,6 +31,12 @@ public class OrderController {
                                               @PageableDefault(size = 10) Pageable pageable) {
         HeaderResponse<OrderResponse> response = orderMapper.getUserOrders(user.getEmail(), pageable);
         return ResponseEntity.ok().headers(response.getHeaders()).body(response.getItems());
+    }
+
+    @GetMapping(ORDER_ID)
+    public ResponseEntity<OrderResponse> getOrderById(@AuthenticationPrincipal UserPrincipal user,
+                                                      @PathVariable Long orderId) {
+        return ResponseEntity.ok(orderMapper.getOrderById(orderId, user.getEmail()));
     }
 
     @PostMapping

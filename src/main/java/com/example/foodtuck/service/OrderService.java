@@ -10,4 +10,6 @@ public interface OrderService {
     Order postOrder(Order order, Map<Long, Long> foodsId);
 
     Page<Order> getUserOrders(String email, Pageable pageable);
+
+    Order getOrderById(Long orderId);
 }

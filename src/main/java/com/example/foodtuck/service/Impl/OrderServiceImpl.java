@@ -3,6 +3,7 @@ package com.example.foodtuck.service.Impl;
 import com.example.foodtuck.domain.Food;
 import com.example.foodtuck.domain.Order;
 import com.example.foodtuck.domain.OrderItem;
+import com.example.foodtuck.exception.ApiRequestException;
 import com.example.foodtuck.repository.FoodRepository;
 import com.example.foodtuck.repository.OrderItemRepository;
 import com.example.foodtuck.repository.OrderRepository;
@@ -11,6 +12,7 @@ import com.example.foodtuck.service.email.MailSender;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +20,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.example.foodtuck.constants.ErrorMessage.ORDER_NOT_FOUND;
 
 @Service
 @RequiredArgsConstructor
@@ -59,5 +63,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Page<Order> getUserOrders(String email, Pageable pageable) {
         return orderRepository.findOrderByEmail(email, pageable);
+    }
+
+    @Override
+    public Order getOrderById(Long orderId) {
+        return orderRepository.findById(orderId)
+                .orElseThrow(() -> new ApiRequestException(ORDER_NOT_FOUND, HttpStatus.NOT_FOUND));
     }
 }

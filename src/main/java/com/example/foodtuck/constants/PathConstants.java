@@ -17,6 +17,8 @@ public class PathConstants {
     public static final String CODE = "/{code}";
     public static final String ACTIVATION_CODE = "/activate" + CODE;
 
+    public static final String ORDER_ID = "/{orderId}";
+
     public static final String FOOD_ID = "/{foodId}";
     public static final String SEARCH = "/search";
     public static final String SEARCH_TEXT = "/search/text";
