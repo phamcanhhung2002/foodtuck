@@ -13,3 +13,5 @@ export const ORDER = "/checkout";
 export const ORDER_FINALIZE = "/checkout/finalize"
 export const DETAIL_PRODUCT = "/detail-product"
 export const ACCOUNT = "/account";
+export const ACCOUNT_USER_INFO = "/account/user/info"
+export const ACCOUNT_USER_ORDERS = "/account/user/orders"

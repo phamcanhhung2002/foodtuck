@@ -28,6 +28,16 @@ export interface UserRegistration {
   password2: string;
 }
 
+export interface UserEditRequest {
+  id: number | undefined;
+  firstName: string | undefined;
+  lastName: string | undefined;
+  city: string | undefined;
+  address: string | undefined;
+  phoneNumber: string | undefined;
+  postIndex: string | undefined;
+}
+
 export interface UserEditErrors {
   firstNameError: string;
   lastNameError: string;

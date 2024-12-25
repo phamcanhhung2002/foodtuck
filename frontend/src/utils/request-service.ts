@@ -9,6 +9,10 @@ class RequestService {
   post = (url: string, body: any, isAuthRequired: boolean = false, contentType: string = "application/json") => {
     return createRequest("POST", url, body, isAuthRequired, contentType)
   }
+
+  put(url: string, body: any, isAuthRequired: boolean = false, contentType: string = "application/json") {
+    return createRequest("PUT", url, body, isAuthRequired, contentType)
+  }
 }
 
 const createRequest = (method: Method, url: string, body: any, isAuthRequired: boolean, contentType: string) => {

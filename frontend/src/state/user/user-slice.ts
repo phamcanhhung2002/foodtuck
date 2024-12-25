@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { UserEditErrors, UserResponse } from "../../types/user";
 import { LoadingStatus } from "../../types/types";
-import { fetchUserInfo } from "./user-thunk";
+import { fetchUserInfo, updateUserInfo } from "./user-thunk";
 
 export interface UserState {
   user?: UserResponse;
@@ -40,6 +40,13 @@ export const userSlice = createSlice({
     builder.addCase(fetchUserInfo.fulfilled, (state, action) => {
       state.user = action.payload
       state.loadingState = LoadingStatus.LOADED
+    })
+    builder.addCase(updateUserInfo.fulfilled, (state, action) => {
+      state.user = action.payload;
+      state.userEditErrors = {};
+    })
+    builder.addCase(updateUserInfo.rejected, (state, action) => {
+      state.userEditErrors = action.payload!
     })
   },
 });
