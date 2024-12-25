@@ -1,12 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
-import { HEADER_SITEMAP, HEADER_ACTION, IAction} from "../../constants/sitemap"
+import { HEADER_SITEMAP, HEADER_ACTION} from "../../constants/sitemap"
 import { AppstoreOutlined, CloseCircleTwoTone } from "@ant-design/icons";
 import { Badge, Divider, Drawer } from "antd";
 import { selectCartItemsCount } from "../../state/cart/cart-selector";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUserFromUserState } from "../../state/user/user-selector";
 import { logoutSuccess } from "../../state/user/user-slice";
+import { IAction } from "../../types/types";
 
 
 const Header = () => {

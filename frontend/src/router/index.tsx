@@ -4,7 +4,7 @@ import DefaultLayout from "../layout";
 import NotFound from "../pages/notFound";
 import RequireAuth from "../layout/RequireAuth";
 import Account from "../pages/account";
-import { ACCOUNT, ACCOUNT_USER_INFO, ACCOUNT_USER_ORDERS } from "../constants/routeConstants";
+import { ACCOUNT, USER_INFO, USER_ORDER } from "../constants/routeConstants";
 import AccountItem from "../pages/account/AccountItem";
 import PersonalData from "../pages/account/PersonalData";
 import PersonalOrdersList from "../pages/account/PersonalOrdersList";
@@ -31,8 +31,8 @@ const RouterList = () => {
             </DefaultLayout>
         }>
           <Route index element={<AccountItem/>}/>
-          <Route path={ACCOUNT_USER_INFO} element={<PersonalData/>}/>
-          <Route path={ACCOUNT_USER_ORDERS} element={<PersonalOrdersList/>}/>
+          <Route path={USER_INFO} element={<PersonalData/>}/>
+          <Route path={USER_ORDER} element={<PersonalOrdersList/>}/>
         </Route>
       </Route>
       <Route path="*" element={<DefaultLayout><NotFound /></DefaultLayout>} />

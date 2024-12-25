@@ -1,6 +1,6 @@
 
 import CoverPage from "../../components/CoverPage";
-import { ACCOUNT_USER_INFO, ACCOUNT_USER_ORDERS, BASE } from "../../constants/routeConstants";
+import { USER_INFO, USER_ORDER, BASE } from "../../constants/routeConstants";
 import type { MenuProps } from 'antd'
 import { Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
@@ -11,11 +11,11 @@ type MenuItem = Required<MenuProps>['items'][number];
 const menuItems: MenuItem[] = [
   {
     key: 1,
-    label: <Link to={ACCOUNT_USER_INFO}>Personal data</Link>
+    label: <Link to={USER_INFO}>Personal data</Link>
   },
   {
     key: 2,
-    label: <Link to={ACCOUNT_USER_ORDERS}>List of orders</Link>
+    label: <Link to={USER_ORDER}>List of orders</Link>
   },
 ]
 

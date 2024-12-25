@@ -11,7 +11,6 @@ import { OrderResponse } from "../../types/order";
 import { PagingRequest } from "../../types/types";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
-import { ACCOUNT_USER_ORDERS } from "../../constants/routeConstants";
 
 const PersonalOrdersList = () => {
   const dispatch = useDispatch<any>();
@@ -69,7 +68,7 @@ const PersonalOrdersList = () => {
             title: "Actions",
             dataIndex: "operations",
             key: "operations",
-            render: (_, order: OrderResponse) => <Link to={`${ACCOUNT_USER_ORDERS}/${order.id}`}>Show more</Link>
+            render: (_, order: OrderResponse) => <Link to={`${order.id}`}>Show more</Link>
           }
         ]}
       />

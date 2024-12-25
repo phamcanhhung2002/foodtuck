@@ -25,6 +25,14 @@ export interface PagingRequest {
     size: number;
 }
 
+export interface IAction {
+  title: string;
+  icon?: React.ReactElement;
+  path?: string;
+  hideOnLogIn?: boolean;
+  showOnLogIn?: boolean;
+}
+
 export interface Food {
     id: string,
     name: string,

@@ -1,17 +1,10 @@
 import { LoginOutlined, LogoutOutlined, SearchOutlined, ShoppingOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { ACCOUNT, BASE, CART, LOGIN, SIGNUP } from "./routeConstants";
+import { ABOUT, ACCOUNT, BASE, BLOG, CART, LOGIN, MENU, SHOP, SIGNUP } from "./routeConstants";
+import { IAction } from "../types/types";
 
 interface ISitemap {
     title: string;
     path: string;
-}
-
-export interface IAction {
-  title: string;
-  icon?: React.ReactElement;
-  path?: string;
-  hideOnLogIn?: boolean;
-  showOnLogIn?: boolean;
 }
 
 export const HEADER_SITEMAP : Array<ISitemap>= [
@@ -21,11 +14,11 @@ export const HEADER_SITEMAP : Array<ISitemap>= [
     },
     {
       title: 'Menu',
-      path: '/menu',
+      path: MENU,
     },
     {
       title: 'Blog',
-      path: '/blog',
+      path:  BLOG,
     },
     {
       title: 'Pages',
@@ -33,11 +26,11 @@ export const HEADER_SITEMAP : Array<ISitemap>= [
     },
     {
       title: 'About',
-      path: '/about',
+      path: ABOUT,
     },
     {
       title: 'Shop',
-      path: '/shop',
+      path: SHOP,
     },
     {
       title: 'Contact',
