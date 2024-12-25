@@ -10,4 +10,6 @@ public interface UserService {
     User getUserInfo(String email);
 
     List<Food> getCart(List<Long> foodIds);
+
+    User updateUserInfo(String email, User user);
 }

@@ -1,12 +1,15 @@
 package com.example.foodtuck.controller;
 
 import com.example.foodtuck.dto.food.FoodResponse;
+import com.example.foodtuck.dto.user.UpdateUserRequest;
 import com.example.foodtuck.dto.user.UserResponse;
 import com.example.foodtuck.mapper.UserMapper;
 import com.example.foodtuck.security.UserPrincipal;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +27,14 @@ public class UserController {
     @GetMapping
     public ResponseEntity<UserResponse> getUserInfo(@AuthenticationPrincipal UserPrincipal user) {
         return ResponseEntity.ok(userMapper.getUserInfo(user.getEmail()));
+    }
+
+
+    @PutMapping
+    public ResponseEntity<UserResponse> updateUserInfo(@AuthenticationPrincipal UserPrincipal user,
+                                                       @Valid @RequestBody UpdateUserRequest request,
+                                                       BindingResult bindingResult) {
+        return ResponseEntity.ok(userMapper.updateUserInfo(user.getEmail(), request, bindingResult));
     }
 
     @PostMapping(CART)
