@@ -20,6 +20,11 @@ export interface HeaderResponse<T> {
 	totalElements: number;
 }
 
+export interface PagingRequest {
+    page: number;
+    size: number;
+}
+
 export interface Food {
     id: string,
     name: string,

@@ -5,6 +5,7 @@ import cartReducer from './cart/cart-slice';
 import foodsReducer from './foods/foods-slice';
 import foodReducer from './food/food-slice'
 import orderReducer  from './order/order-slice';
+import ordersReducer from './orders/orders-slice';
 
 export const storeReducer = {
   auth: authReducer,
@@ -12,7 +13,8 @@ export const storeReducer = {
   cart: cartReducer,
   foods: foodsReducer,
   food: foodReducer,
-  order: orderReducer
+  order: orderReducer,
+  orders: ordersReducer
 }
 
 export const store = configureStore({
