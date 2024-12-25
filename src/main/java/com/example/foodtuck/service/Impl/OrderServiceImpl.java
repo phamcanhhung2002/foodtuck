@@ -9,6 +9,8 @@ import com.example.foodtuck.repository.OrderRepository;
 import com.example.foodtuck.service.OrderService;
 import com.example.foodtuck.service.email.MailSender;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,5 +54,10 @@ public class OrderServiceImpl implements OrderService {
         mailSender.sendMessageHtml(order.getEmail(), subject, template, attributes);
 
         return order;
+    }
+
+    @Override
+    public Page<Order> getUserOrders(String email, Pageable pageable) {
+        return orderRepository.findOrderByEmail(email, pageable);
     }
 }
