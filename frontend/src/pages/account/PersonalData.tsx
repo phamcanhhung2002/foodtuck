@@ -44,7 +44,9 @@ const PersonalData = () => {
 
   return (
     <div>
-      <ContentTitle title="My Account" icon={<ProfileOutlined/>}/>
+      <div className="mb-3">
+        <ContentTitle title="My Account" icon={<ProfileOutlined/>}/>
+      </div>
       <div className="flex gap-x-8">
         <div className="basis-1/2">
           <AccountDataItem title="Email" text={userData?.email}/>

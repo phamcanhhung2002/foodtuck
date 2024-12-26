@@ -29,7 +29,9 @@ const PersonalOrdersList = () => {
 
   return (
     <div>
-      <ContentTitle title="List of all orders" icon={<ShoppingOutlined/>}/>
+      <div className="mb-3">
+        <ContentTitle title="List of all orders" icon={<ShoppingOutlined/>}/>
+      </div>
       <Table
         rowKey={"id"}
         onChange={handleTableChange}

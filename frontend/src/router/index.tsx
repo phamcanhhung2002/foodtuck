@@ -8,6 +8,7 @@ import { ACCOUNT, USER_INFO, USER_ORDER } from "../constants/routeConstants";
 import AccountItem from "../pages/account/AccountItem";
 import PersonalData from "../pages/account/PersonalData";
 import PersonalOrdersList from "../pages/account/PersonalOrdersList";
+import ManageUserOrder from "../pages/account/ManageUserOrder";
 
 
 const RouterList = () => {
@@ -33,6 +34,7 @@ const RouterList = () => {
           <Route index element={<AccountItem/>}/>
           <Route path={USER_INFO} element={<PersonalData/>}/>
           <Route path={USER_ORDER} element={<PersonalOrdersList/>}/>
+          <Route path={`${USER_ORDER}/:id`} element={<ManageUserOrder/>}/>
         </Route>
       </Route>
       <Route path="*" element={<DefaultLayout><NotFound /></DefaultLayout>} />

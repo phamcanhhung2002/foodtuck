@@ -5,6 +5,7 @@ import type { MenuProps } from 'antd'
 import { Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { Link, Outlet } from "react-router-dom";
+import ContentTitle from "./components/ContentTitle";
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -26,13 +27,8 @@ const Account = () => {
 
       <div className="flex">
         <div className="basis-3/12">
-          <div className="flex items-center text-xl">
-            <span className="text-3xl">
-              <UserOutlined />
-            </span>
-            <h2 className="ml-2">
-              My Account
-            </h2>
+          <div className="mb-3">
+            <ContentTitle title="My account" icon={<UserOutlined/>} textSize="text-2xl"/>
           </div>
           <Menu items={menuItems} mode="vertical" style={{ width: "100%" }}/>
         </div>

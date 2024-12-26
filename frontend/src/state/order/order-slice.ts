@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { OrderError, OrderItemResponse, OrderResponse } from "../../types/order";
 import { LoadingStatus } from "../../types/types";
-import { addOrder } from "./order-thunk";
+import { addOrder, fetchOrderById, fetchOrderItemsByOrderId } from "./order-thunk";
 
 export interface OrderState {
   order: Partial<OrderResponse>,
@@ -29,17 +29,31 @@ export const orderSlice = createSlice({
     resetOrderState: () => initialState
   },
   extraReducers(builder) {
-      builder.addCase(addOrder.pending, (state) => {
-        state.loadingState = LoadingStatus.LOADING
-      })
-      builder.addCase(addOrder.fulfilled, (state, action) => {
-        state.order = action.payload
-        state.loadingState = LoadingStatus.LOADED
-      })
-      builder.addCase(addOrder.rejected, (state, action) => {
-        state.errors = action.payload!
-        state.loadingState = LoadingStatus.ERROR
-      })
+    builder.addCase(addOrder.pending, (state) => {
+      state.loadingState = LoadingStatus.LOADING
+    })
+    builder.addCase(addOrder.fulfilled, (state, action) => {
+      state.order = action.payload
+      state.loadingState = LoadingStatus.LOADED
+    })
+    builder.addCase(addOrder.rejected, (state, action) => {
+      state.errors = action.payload!
+      state.loadingState = LoadingStatus.ERROR
+    })
+    builder.addCase(fetchOrderById.pending, (state) => {
+      state.loadingState = LoadingStatus.LOADING
+    })
+    builder.addCase(fetchOrderById.fulfilled, (state, action) => {
+      state.order = action.payload;
+      state.loadingState = LoadingStatus.LOADED
+    })
+    builder.addCase(fetchOrderById.rejected, (state, action) => {
+      state.errorMessage = action.payload!;
+      state.loadingState = LoadingStatus.ERROR;
+    });
+    builder.addCase(fetchOrderItemsByOrderId.fulfilled, (state, action) => {
+      state.orderItems = action.payload;
+    })
   },
 })
 

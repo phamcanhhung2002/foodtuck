@@ -5,6 +5,7 @@ export interface FoodResponse {
   originalPrice: number;
   images: Array<string>
   rating: number;
+  category: string;
 }
 
 export interface FullFoodResponse extends FoodResponse {

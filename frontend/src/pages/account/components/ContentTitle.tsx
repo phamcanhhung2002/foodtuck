@@ -2,14 +2,15 @@ import React, { FC } from "react";
 
 type PropsType = {
   title: string;
-  icon: React.ReactNode
+  icon?: React.ReactNode,
+  textSize?: string;
 }
 
-const ContentTitle: FC<PropsType> = ({ title, icon }) => {
+const ContentTitle: FC<PropsType> = ({ title, icon, textSize = "text-xl"}) => {
   return (
-    <div className="flex items-center text-xl mb-4">
-      <span className="text-3xl">{icon}</span>
-      <h3 className="ml-2">{title}</h3>
+    <div className={`inline-flex items-center ${textSize} gap-x-2`}>
+      {icon && (<span>{icon}</span>)}
+      <div className="font-semibold">{title}</div>
     </div>
   )
 }

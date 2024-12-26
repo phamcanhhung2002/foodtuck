@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 type PropsType = {
   title: string,
-  text?: string;
+  text?: string | number;
 }
 
 const AccountDataItem: FC<PropsType> = ({ title, text }) => {
