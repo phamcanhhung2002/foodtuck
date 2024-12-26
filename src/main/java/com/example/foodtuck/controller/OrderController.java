@@ -1,6 +1,7 @@
 package com.example.foodtuck.controller;
 
 import com.example.foodtuck.dto.HeaderResponse;
+import com.example.foodtuck.dto.order.OrderItemResponse;
 import com.example.foodtuck.dto.order.OrderRequest;
 import com.example.foodtuck.dto.order.OrderResponse;
 import com.example.foodtuck.mapper.OrderMapper;
@@ -16,8 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.example.foodtuck.constants.PathConstants.API_V1_ORDER;
-import static com.example.foodtuck.constants.PathConstants.ORDER_ID;
+import static com.example.foodtuck.constants.PathConstants.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -37,6 +37,11 @@ public class OrderController {
     public ResponseEntity<OrderResponse> getOrderById(@AuthenticationPrincipal UserPrincipal user,
                                                       @PathVariable Long orderId) {
         return ResponseEntity.ok(orderMapper.getOrderById(orderId, user.getEmail()));
+    }
+
+    @GetMapping(ORDER_ID_ITEMS)
+    public ResponseEntity<List<OrderItemResponse>> getOrderItemsByOrderId(@PathVariable Long orderId, @AuthenticationPrincipal UserPrincipal user) {
+        return ResponseEntity.ok(orderMapper.getOrderItemsByOrderId(orderId, user.getEmail()));
     }
 
     @PostMapping

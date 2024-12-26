@@ -14,4 +14,5 @@ public class FoodResponse {
     private Integer originalPrice;
     private Double rating;
     private List<String> images;
+    private String category;
 }

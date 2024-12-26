@@ -16,11 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import static com.example.foodtuck.constants.ErrorMessage.NOT_YOUR_ORDER;
 import static com.example.foodtuck.constants.ErrorMessage.ORDER_NOT_FOUND;
 
 @Service
@@ -66,8 +64,20 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order getOrderById(Long orderId) {
-        return orderRepository.findById(orderId)
+    public Order getOrderById(Long orderId, String userEmail) {
+        Order order = orderRepository.findById(orderId)
                 .orElseThrow(() -> new ApiRequestException(ORDER_NOT_FOUND, HttpStatus.NOT_FOUND));
+
+        if (!order.getEmail().equals(userEmail)) {
+            throw new ApiRequestException(NOT_YOUR_ORDER, HttpStatus.FORBIDDEN);
+        }
+
+        return order;
+    }
+
+    @Override
+    public List<OrderItem> getOrderItemsByOrderId(Long orderId, String userEmail) {
+        Order order = getOrderById(orderId, userEmail);
+        return order.getOrderItems();
     }
 }
