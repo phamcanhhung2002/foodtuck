@@ -96,18 +96,17 @@ const Shop = () => {
 
             <section className='flex gap-x-10'>
                 <div className='basis-9/12 flex flex-col items-center max-lg:basis-full max-lg:w-full '>
-                    <div className='grid sm:grid-cols-1 lg:grid-cols-2  2xl:grid-cols-3 3xl:grid-cols-4 4xl:grid-cols-5 gap-10 w-full max-lg:gap-0 max-lg:gap-y-6'>
-                        {
-                            isFoodsLoading ? (
-                                <Spinner/>
-                            ) : (
+                    {isFoodsLoading ? (
+                        <Spinner/>
+                    ) : (
+                        <div className='grid sm:grid-cols-1 lg:grid-cols-2  2xl:grid-cols-3 3xl:grid-cols-4 4xl:grid-cols-5 gap-10 w-full max-lg:gap-0 max-lg:gap-y-6'>
+                            {
                                 foods.map((food) => (
-                                    <ItemFood key={food.id} food={food}/>
+                                <ItemFood key={food.id} food={food}/>
                                 ))
-                            )
-                        }
-                    </div>
-                    
+                            }
+                        </div>
+                    )}
                     <ShopPagination currentPage={currentPage} pageSize={MAX_PAGE_VALUE} 
                         totalElements={totalElements} onChange={changePagination}
                     />
