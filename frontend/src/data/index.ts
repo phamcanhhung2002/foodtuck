@@ -1,4 +1,17 @@
-import { Food } from "../types/types"
+interface Food {
+  id: string,
+  name: string,
+  price: number,
+  originalPrice: number,
+  reviews: [],
+  rate: number,
+  qtyReview: number,
+  images: Array<string>,
+  qtyRemain: number,
+
+  quickIntro: string
+  desc: Array<string>,
+}
 
 export const dataCart = [
     {

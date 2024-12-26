@@ -17,7 +17,9 @@ export const useCart = (foodId: number): UseCart => {
     } else {
       cart.set(foodId as number, quantity)
     }
+    
     localStorage.setItem("foods", JSON.stringify(Array.from(cart.entries())));
+
     navigate(CART)
   }
 

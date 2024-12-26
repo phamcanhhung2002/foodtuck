@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { Button, Divider, InputNumber, Rate, Segmented } from "antd"
+import { Button, Divider, InputNumber, Rate } from "antd"
 import { ArrowLeftOutlined, ArrowRightOutlined, FacebookFilled, 
         HeartOutlined, InstagramFilled, InteractionOutlined, 
         ShoppingCartOutlined, TwitterOutlined, YoutubeFilled } from "@ant-design/icons"
@@ -9,7 +9,7 @@ import CoverPage from "../../components/CoverPage"
 import { toast } from "react-toastify"
 import { useCart } from "../../hooks/useCart"
 import { useDispatch, useSelector } from "react-redux"
-import { selectFood, selectFoodError, selectFoodErrorMessage, selectIsFoodLoaded, selectIsFoodLoading } from "../../state/food/food-selector"
+import { selectFood, selectFoodError, selectFoodErrorMessage, selectIsFoodLoading } from "../../state/food/food-selector"
 import { fetchFood } from "../../state/food/food-thunk"
 import { resetFoodState } from "../../state/food/food-slice"
 import Spinner from "../../components/Spinner"
@@ -21,7 +21,6 @@ const DetailProduct = () => {
     const { id } = useParams<{ id: string }>()
     const food = useSelector(selectFood)
     const isFoodLoading = useSelector(selectIsFoodLoading)
-    const isFoodLoaded = useSelector(selectIsFoodLoaded)
     const isFoodError = useSelector(selectFoodError)
     const errorMessage = useSelector(selectFoodErrorMessage)
     const [quantity, setQuantity] = useState<number>(1)

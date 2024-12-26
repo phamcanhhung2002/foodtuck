@@ -42,8 +42,8 @@ const ShoppingCart = () => {
       localStorage.removeItem("foods")
       setFoodInCart(new Map());
     } else {
-      setFoodInCart(new Map(foodInCart))
       localStorage.setItem("foods", JSON.stringify(Array.from(foodInCart.entries())))
+      setFoodInCart(new Map(foodInCart))
     }
     dispatch(removeFoodById(foodId))
     dispatch(setCartItemsCount(foodInCart.size))

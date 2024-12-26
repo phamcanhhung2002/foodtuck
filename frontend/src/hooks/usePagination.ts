@@ -9,7 +9,7 @@ interface UsePagination {
   resetPagination: () => void
 }
 
-export const MAX_PAGE_VALUE = 1;
+export const MAX_PAGE_VALUE = 6;
 
 export const usePagination = (): UsePagination  => {
   const totalElements = useSelector(selectTotalElements)

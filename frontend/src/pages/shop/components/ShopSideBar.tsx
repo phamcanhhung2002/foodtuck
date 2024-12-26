@@ -5,7 +5,7 @@ import { Slider } from 'antd';
 import ItemLastestProduct from '../../../components/shop/ItemLastestProduct';
 
 const listCategory : Array<string> = [
-    'Sandwiches', 'Hamburger', "Chiken Chup", 'Drink', 'Pizza', 'Thi', 'Non Veg', 'Uncategorized' 
+    'Sandwich', 'Hamburger', "Chicken", 'Drink', 'Pizza', 'Thi', 'Non Veg', 'Uncategorized' 
 ]
 
 const listProductTags : Array<string> = [

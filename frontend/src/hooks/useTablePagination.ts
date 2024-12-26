@@ -3,8 +3,9 @@ import { HeaderResponse } from "../types/types"
 import { useDispatch } from "react-redux"
 import { TablePaginationConfig } from "antd";
 import { FilterValue, SorterResult, TableCurrentDataSource } from "antd/es/table/interface";
-import { MAX_PAGE_VALUE } from "./usePagination";
 import { useState } from "react";
+
+export const MAX_PAGE_VALUE = 10;
 
 export const useTablePagination = <T, S>(
   getPaginationItems: (pageRequest: S) => AsyncThunkAction<HeaderResponse<T>, S, {}>,

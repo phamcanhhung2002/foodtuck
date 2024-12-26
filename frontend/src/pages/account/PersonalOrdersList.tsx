@@ -4,13 +4,12 @@ import { useDispatch, useSelector } from "react-redux"
 import { selectIsOrdersLoading, selectOrders, selectTotalElements } from "../../state/orders/orders-selector";
 import { useEffect } from "react";
 import { fetchUserOrders } from "../../state/orders/orders-thunk";
-import { MAX_PAGE_VALUE } from "../../hooks/usePagination";
 import { resetOrders } from "../../state/orders/orders-slice";
-import { useTablePagination } from "../../hooks/useTablePagination";
 import { OrderResponse } from "../../types/order";
 import { PagingRequest } from "../../types/types";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
+import { useTablePagination } from "../../hooks/useTablePagination";
 
 const PersonalOrdersList = () => {
   const dispatch = useDispatch<any>();
@@ -20,7 +19,7 @@ const PersonalOrdersList = () => {
   const { currentPage, pageSize, handleTableChange } = useTablePagination<OrderResponse, PagingRequest>(fetchUserOrders);
 
   useEffect(() => {
-    dispatch(fetchUserOrders({ page: 0, size: MAX_PAGE_VALUE}))
+    dispatch(fetchUserOrders({ page: 0, size: pageSize}))
 
     return () => {
       dispatch(resetOrders());

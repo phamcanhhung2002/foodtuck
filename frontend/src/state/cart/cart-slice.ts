@@ -18,12 +18,6 @@ export const initialState: CartState = {
     foods: []
 }
 
-export interface IProduct {
-    id: string;
-    qty: number;
-    price: number;
-}
-
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -41,7 +35,9 @@ export const cartSlice = createSlice({
     setCartItemsCount: (state, action: PayloadAction<number>) => {
         state.cartItemsCount = action.payload;
     },
-    resetCartState: () => initialState
+    resetCartState: (state) => {
+        state.loadingState = LoadingStatus.LOADING
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCart.pending, (state) => {
@@ -58,7 +54,7 @@ export const cartSlice = createSlice({
 })
 
 const calculatePrice = (foods: Array<FoodResponse>): number => {
-    const foodsFromLocalStorage: Map<number, number> = new Map(JSON.parse(<string>localStorage.getItem("foods")));
+    const foodsFromLocalStorage: Map<number, number> = new Map(JSON.parse(localStorage.getItem("foods") as string));
     let total = 0;
 
     foodsFromLocalStorage.forEach((value, key) => {
@@ -68,6 +64,7 @@ const calculatePrice = (foods: Array<FoodResponse>): number => {
             total += food.price * value;
         }
     })
+
     return total;
 }
 
